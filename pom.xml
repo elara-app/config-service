@@ -15,7 +15,7 @@
     <!-- - - - - - - - - - - - - -->
     <groupId>com.elara.app</groupId>
     <artifactId>config-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <name>config-service</name>
     <description>Managing configuration files for Elara services</description>
     <url/>
