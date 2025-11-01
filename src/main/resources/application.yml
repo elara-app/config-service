@@ -1,13 +1,13 @@
-# Spring Boot application configuration
+server:
+  port: 8000
 spring:
   application:
-    name: config-service # The name of this Spring Boot application
+    name: config-service
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/elara-app/centralized-configuration.git # Git repository containing configuration files
-          clone-on-start: true # Clone the Git repository when the server starts
-# Server configuration
-server:
-  port: 8888 # Port number for the config server to listen on
+          uri: https://github.com/elara-app/centralized-configuration.git
+          clone-on-start: true
+  profiles:
+    active: dev
