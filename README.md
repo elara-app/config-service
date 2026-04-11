@@ -20,12 +20,10 @@ Current local server settings (`src/main/resources/application.yml`):
 
 ## How it interacts with the rest of the platform
 
-Services that consume this Config Server (linked once as requested):
+Services that consume this Config Server:
 - [inventory-service](https://github.com/elara-app/inventory-service.git)
 - [unit-of-measure-service](https://github.com/elara-app/unit-of-measure-service.git)
 - [api-gateway](https://github.com/elara-app/api-gateway.git)
-
-From here forward: inventory-service, unit-of-measure-service, and api-gateway.
 
 ### Interaction flow
 
