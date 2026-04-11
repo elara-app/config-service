@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 8888
 spring:
   application:
     name: config-service
@@ -9,5 +9,3 @@ spring:
         git:
           uri: https://github.com/elara-app/centralized-configuration.git
           clone-on-start: true
-  profiles:
-    active: dev
