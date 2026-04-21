@@ -1,3 +1,5 @@
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/elara-app/config-service)
+
 # Config Service
 
 Centralized configuration server for the Elara microservices platform, built with **Spring Cloud Config Server**.
