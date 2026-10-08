@@ -52,7 +52,7 @@ Current mapping:
 
 `centralized-configuration/service-secrets/` includes:
 - `inventory-service-dev-secrets.json`
-- `uom-service-dev-secrets.json`
+- `unit-of-measure-service-dev-secrets.json`
 
 These JSON payloads are uploaded to Vault and consumed by inventory-service and unit-of-measure-service for `dev` profile secret resolution.  
 Secret-management details are intentionally documented in depth in `centralized-configuration`, not here.
