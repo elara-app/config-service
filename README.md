@@ -15,7 +15,7 @@ Current upstream config repository:
 - `https://github.com/elara-app/centralized-configuration.git`
 
 Current local server settings (`src/main/resources/application.yml`):
-- `server.port: 8000`
+- `server.port: 8888`
 - `spring.application.name: config-service`
 - `spring.cloud.config.server.git.clone-on-start: true`
 - active profile: `dev`
@@ -67,9 +67,9 @@ Useful Config Server endpoints:
 Examples:
 
 ```bash
-curl http://localhost:8000/inventory-service/dev
-curl http://localhost:8000/unit-of-measure-service/test
-curl http://localhost:8000/api-gateway/dev
+curl http://localhost:8888/inventory-service/dev
+curl http://localhost:8888/unit-of-measure-service/test
+curl http://localhost:8888/api-gateway/dev
 ```
 
 The response contains `propertySources` in precedence order, which is the key artifact for troubleshooting effective values.
