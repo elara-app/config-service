@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: ${SERVER_PORT:8888}
 spring:
   application:
     name: config-service
@@ -7,5 +7,17 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/elara-app/centralized-configuration.git
-          clone-on-start: true
+          uri: ${CONFIG_GIT_URI:https://github.com/elara-app/centralized-configuration.git}
+          default-label: main
+          clone-on-start: false
+          force-pull: true
+          timeout: 10
+          refresh-rate: 60
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
