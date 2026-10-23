@@ -34,9 +34,9 @@ This repository owns the Config Server runtime only: a single `@SpringBootApplic
 - `force-pull: true`, `timeout: 10`, `refresh-rate: 60`: the local clone is refreshed from the remote at most every 60 seconds.
 - Consumers: `api-gateway`, `inventory-service` and `unit-of-measure-service` fetch their configuration over HTTP. `discovery-service` is not a consumer, and config-service does not appear in the Eureka registry.
 - No push channel: the server has no Spring Cloud Bus/AMQP dependency and exposes no refresh endpoint. Clients decide when to reload configuration.
-- In the source Compose stack, `CONFIG_GIT_URI` defaults to a read-only bind mount of `../centralized-configuration`, so cloning works offline. The [published demo stack](../infra/compose.published.yml) sets `SPRING_CLOUD_CONFIG_SERVER_GIT_CLONE_ON_START: "true"` and clones the default GitHub URI at startup, so it needs GitHub access.
+- In the source Compose stack, `CONFIG_GIT_URI` defaults to a read-only bind mount of `../centralized-configuration`, so cloning works offline. The [published demo stack](https://github.com/elara-app/infrastructure/blob/main/compose.published.yml) sets `SPRING_CLOUD_CONFIG_SERVER_GIT_CLONE_ON_START: "true"` and clones the default GitHub URI at startup, so it needs GitHub access.
 
-See [infra/README.md](../infra/README.md) for the stack layout and [centralized-configuration](../centralized-configuration/README.md) for the served files.
+See [infrastructure/README.md](https://github.com/elara-app/infrastructure#readme) for the stack layout and [centralized-configuration/README.md](https://github.com/elara-app/centralized-configuration#readme) for the served files.
 
 ## API
 
@@ -81,7 +81,7 @@ sh ./mvnw spring-boot:run                                  # serve locally on po
 
 With the default remote URI, the first `spring-boot:run` request clones GitHub online.
 
-To verify the service in the full platform, use the canonical commands in [infra/README.md#verify-the-stack](../infra/README.md#verify-the-stack). Once the stack is up:
+To verify the service in the full platform, use the canonical commands in [infrastructure/README.md](https://github.com/elara-app/infrastructure#readme). Once the stack is up:
 
 ```bash
 curl -s http://127.0.0.1:8888/inventory-service/dev | jq '.propertySources[].name'
@@ -106,7 +106,7 @@ All keys live in `src/main/resources/application.yml`:
 
 `application.yml` sets no active profile; startup falls back to the `default` profile. The `-Dspring.profiles.active=test` in the verify command is a command-line override for the build only.
 
-The client profile matrix (api-gateway has `dev` only; inventory-service and unit-of-measure-service have `dev`, `test`, `prod` with sparse prod placeholders) and the file naming contract are owned by [centralized-configuration](../centralized-configuration/README.md).
+The client profile matrix (api-gateway has `dev` only; inventory-service and unit-of-measure-service have `dev`, `test`, `prod` with sparse prod placeholders) and the file naming contract are owned by [centralized-configuration/README.md](https://github.com/elara-app/centralized-configuration#readme).
 
 ## Testing and quality gates
 
@@ -141,6 +141,6 @@ The client profile matrix (api-gateway has `dev` only; inventory-service and uni
 ## Documentation
 
 - [AGENTS.md](AGENTS.md) — commands, invariants and traps for coding agents.
-- [infra/README.md](../infra/README.md) — full-stack quickstart, ports and source-vs-published behavior.
-- [centralized-configuration/README.md](../centralized-configuration/README.md) — served files, profile matrix and secrets policy.
+- [infrastructure/README.md](https://github.com/elara-app/infrastructure#readme) — full-stack quickstart, ports and source-vs-published behavior.
+- [centralized-configuration/README.md](https://github.com/elara-app/centralized-configuration#readme) — served files, profile matrix and secrets policy.
 - Source of truth: `src/main/resources/application.yml`, `Dockerfile`, `.github/workflows/`.
