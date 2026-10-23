@@ -3,8 +3,8 @@
 ## Read first
 
 - [README.md](README.md) — purpose, endpoint behavior, configuration summary, limitations.
-- [infra/README.md](../infra/README.md) — full-stack commands, ports, source-vs-published stacks; canonical verification is [verify the stack](../infra/README.md#verify-the-stack).
-- [centralized-configuration/README.md](../centralized-configuration/README.md) — served files, profile matrix, secrets policy.
+- [infrastructure/README.md](https://github.com/elara-app/infrastructure#readme) — full-stack commands, ports, source-vs-published stacks and canonical verification.
+- [centralized-configuration/README.md](https://github.com/elara-app/centralized-configuration#readme) — served files, profile matrix, secrets policy.
 - Source of truth: `src/main/resources/application.yml`, `pom.xml`, `Dockerfile`, `.github/workflows/`.
 
 ## Scope and boundaries
@@ -36,7 +36,7 @@ sh ./mvnw -B clean verify -Dspring.profiles.active=test  # full verification
 sh ./mvnw spring-boot:run                                # serve locally; first request clones the repo
 ```
 
-Full-stack start/stop/verify commands live only in [infra/README.md#verify-the-stack](../infra/README.md#verify-the-stack).
+Full-stack start/stop/verify commands live only in [infrastructure/README.md](https://github.com/elara-app/infrastructure#readme).
 
 ## Repository map
 
@@ -93,7 +93,7 @@ Full-stack start/stop/verify commands live only in [infra/README.md#verify-the-s
 - Adding authentication, TLS, rate limiting or any new exposure on port 8888.
 - Changing serving semantics, endpoint mappings or health status behavior.
 - Adding dependencies (Eureka, Vault, security, Bus/AMQP) or an active profile.
-- Anything requiring edits outside this repo (`centralized-configuration`, `infra`, client services, CI workflows).
+- Anything requiring edits outside this repo (`centralized-configuration`, `infrastructure`, client services, CI workflows).
 - Changing the container image contract (entrypoint, user, base image, packaging).
 
 ## Known traps
@@ -112,6 +112,6 @@ Full-stack start/stop/verify commands live only in [infra/README.md#verify-the-s
 
 - README owns human-facing purpose, API behavior, configuration summary and troubleshooting; AGENTS owns constraints, commands and traps. Do not duplicate sections between them.
 - Verify every port, endpoint, env var and status code against `application.yml`, the Compose files and workflows before editing docs.
-- Keep links relative and working: `../infra/README.md#verify-the-stack`, `../centralized-configuration/README.md`.
+- Use absolute cross-repo links: `https://github.com/elara-app/infrastructure#readme`, `https://github.com/elara-app/centralized-configuration#readme`.
 - If behavior changes in code, update README and AGENTS in the same change.
 - Remove stale statements instead of appending corrections; no marketing prose and no "last updated" metadata.
